@@ -1,6 +1,6 @@
-FROM debian:jessie
+FROM debian:bullseye-slim
 
-LABEL maintainer "opsxcq@strm.sh"
+LABEL maintainer "jaycuse@fastmailfm"
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -12,7 +12,8 @@ RUN apt-get update && \
 COPY main.sh /
 RUN mkdir /www
 
-EXPOSE 80
+ENV HTTP_PORT=80
+EXPOSE $HTTP_PORT
 
 WORKDIR /www
 
